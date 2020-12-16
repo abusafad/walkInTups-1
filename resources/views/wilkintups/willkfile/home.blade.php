@@ -383,7 +383,7 @@
         <div class="row">
             <div class="col-xs-12 col-md-6">
 
-                <img class="img-responsive" src="{{ url('images/bodyimage.jpg') }}" alt = "bimage">
+                <img class="img-responsive" src="{{ url('images/bodyimage.jpg') }}" alt = "WalkIn Tubs Shower">
 
             </div>
             <div class="col-xs-12 col-md-6">
@@ -482,7 +482,7 @@ Our partners, however, will give you a highly competitive deal on pre-installati
             </div>
             <div class="col-xs-12 col-md-6">
 
-                <img class="img-responsive limg" src="{{ url('images/final-content.png') }}" alt ="bottom image">
+                <img class="img-responsive limg" src="{{ url('images/final-content.png') }}" alt ="WalkIn Tubs HealthCare">
 
             </div>
         </div>
