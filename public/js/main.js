@@ -2,6 +2,30 @@ $('#NextButton').addClass("link-inactive");
 $('#submitform').addClass("link-inactive");
 $('#popsubmit').addClass("link-inactive");
 $("#next2").addClass("link-inactive");
+$("#progress").animate({'width': '0%'});
+let zipcode = ''
+/**
+ * list of routes users to send data on server.
+ * @type {string}
+ */
+
+let BaseURI = "https://pro.allieddigitalmedia.com/api/"
+let ZipCodeFilter = 'rest/addressDetails'
+let SaveZipCode = 'rest/savezipcode'
+let SaveName = 'rest/savename'
+let SavePhoneEmail = 'rest/savephoneemail'
+
+zipcode = $('#zipcode').val()
+
+// here make block or restrict special characters from input fields.
+$('#zipcode').on('keypress change', (e) => {
+    var regex = new RegExp("^[0-9]+$")
+    var key = String.fromCharCode(!e.charCode ? e.which : e.charCode)
+    if (!regex.test(key) && zipcode.length <= 5) {
+        e.preventDefault()
+        return false
+    }
+})
 
 //  this array to save all features are selected.
 let _selected = new Array()
@@ -160,6 +184,7 @@ $(document).ready(function() {
 
 // end binding section.
 // changing the color of selected item inside popup////
+
 $(document).ready(function () {
     $("select.contaforselect1").change(function () {
         $(this).children("option:selected").css;
@@ -200,6 +225,8 @@ $('button[name="walk_in_tub"]').click(function () {
     window.location.hash = 'step3';
     $(".formcontent2").hide();
     $(".formcontent3").show();
+    $('#progress').css({'width': '30%'})
+
 });
 $("input[name='desired_featuers[]']").click( function () {
 
@@ -329,12 +356,14 @@ $(document).ready(function () {
     $("#previous2").click(function () {
         $(".formcontent3").hide();
         $(".formcontent2").show();
+        $('#progress').css('width', '20%')
         window.location.hash = 'step2';
 
     });
     $("#previous3").click(function () {
         $(".formcontent4").hide();
         $(".formcontent3").show();
+        $('#progress').animate({width: '30%'})
         window.location.hash = 'step3';
 
     });
@@ -381,7 +410,6 @@ $(document).ready(function () {
 
 $("#zipcode").on("keyup change" , function (e) {
     var zipcode = $(this).val();
-
     if (zipcode.length == 5) {
         $.ajax({
             url: zipCodeFillter,
@@ -395,10 +423,11 @@ $("#zipcode").on("keyup change" , function (e) {
                 // $('#NextButton').css("opacity", 0.5);
             },
             success: function (the_result) {
+                $("#progress").animate({'width': '10%'})
                 console.log(the_result['zip_code_list']);
                 var zcodev2 = $("#zipcode").val();
 
-                var lnamevalid = $("#lname_validation").val();
+                    var lnamevalid = $("#lname_validation").val();
                 var phonenumvalid = $("#phone_validation").val();
                 var emailvalid = $("#email_validation").val();
                 var fnamevalid = $("#fname_validation").val();
@@ -471,7 +500,7 @@ $(document).ready(function () {
                         $('#NextButton').css("opacity", 0.5);
                     },
                     success: function (the_result) {
-                        // console.log(the_result['zip_code_list']);
+                        $("#progress").animate({'width': '10%'})
                         $('#NextButton').text("Next");
                         $('#NextButton').css("opacity", 1);
                         $('#NextButton').removeClass("link-inactive");
@@ -552,6 +581,7 @@ $('#zipcode').keydown(function (e) {
                         // $("#NextButton").addClass('link-inactive')
                         $(".formcontent").hide();
                         $(".formcontent2").show();
+                        $('#progress').css('width', '20%')
                         window.location.hash = 'step2';
                         epress = 0;
                     }
@@ -595,6 +625,7 @@ $("#fname").change(function () {
             success: function (the_result) {
                 // console.log(the_result);
                 if (the_result == 1) {
+                    $("#progress").animate({'width': '20%'})
                     var $regex = /(\w)\1{2,}/;
                     var $string = $('#fname').val().toLowerCase();
 
@@ -1647,7 +1678,7 @@ $("#NextButton").click(function (e) {
             "_token": token
         },
         success: function (the_result) {
-
+            $('#progress').animate({width: '35%'})
             $('#NextButton').css("opacity", 1);
             $('#NextButton').text("Next");
             $("#zipcodepop").val(zcodeff);
@@ -1677,6 +1708,7 @@ $("#next5").click(function (e) {
             "_token": token
         },
         success: function (the_result) {
+            $('#progress').animate({'width': '67%'})
             $('#next5').css("opacity", 1);
             $('#next5').text("Next");
             console.log(the_result);
@@ -1824,7 +1856,7 @@ $("#zipcodepop").focusout(function () {
                 $('#NextButton').css("opacity", 0.5);
             },
             success: function (the_result) {
-                // console.log(the_result['zip_code_list']);
+                $("#progress").animate({'width': '10%'})
                 var lnamevalid = $("#lname_validation").val();
                 var phonenumvalid = $("#phone_validation").val();
                 var emailvalid = $("#email_validation").val();
@@ -1954,7 +1986,6 @@ $("#fnamepop").change(function () {
                 $('#popsubmit').addClass("link-inactive");
             },
             success: function (the_result) {
-                // console.log(the_result);
                 if (the_result == 1) {
                     var $regex = /(\w)\1{2,}/;
                     var $string = $('#fnamepop').val().toLowerCase();
@@ -2070,7 +2101,6 @@ $("#lnamepop").change(function () {
                 $('#popsubmit').addClass("link-inactive");
             },
             success: function (the_result) {
-                // console.log(the_result);
                 if (the_result == 1) {
                     var $regex1 = /(\w)\1{2,}/;
                     var $string1 = $('#lnamepop').val().toLowerCase();
@@ -2164,7 +2194,6 @@ $("#phone_numberpop").change(function () {
 
             },
             success: function (the_result) {
-                // console.log(the_result);
                 if (the_result == 1) {
                     var phnumv1 = $("#phone_numberpop").val();
                     $("#phone_number").val(phnumv1);
@@ -2526,3 +2555,5 @@ $(".myBtn").click(function ()
     $("body , html").scrollTop(0);
 });
 
+yosef@allieddigitalmedia.net
+password:yosef@allied

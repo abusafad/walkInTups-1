@@ -18,7 +18,7 @@ class ZipCodeFillterController extends Controller
         $zipcode = $request['zipcode'];
 
         $data = array(
-            'zipcode' => $zipcode
+                'zipcode' => $zipcode
         );
 
         $api = new MainFunction();
@@ -27,6 +27,7 @@ class ZipCodeFillterController extends Controller
         if (isset($result['address'])) {
             $address = $result['address'];
         }
+
         return $address;
 
     }

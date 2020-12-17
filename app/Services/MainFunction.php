@@ -11,7 +11,7 @@ class MainFunction {
         $password = "";
    // $host    = "http://107.180.24.41/api/" . $url;   /*for testing localhost F*/
    // $host    = "https://127.0.0.1:8000/api/" . $url;   /*for testing localhost T*/
-        $host = "https://pro.allieddigitalmedia.com/api/" . $url;      /*on live server*/
+        $host = "http://107.180.24.41/api/" . $url;      /*on live server*/
 
         $additionalHeaders = "Basic BASE64";
         $campaign_id = "A1LL20I20ED199";

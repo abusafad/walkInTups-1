@@ -27,7 +27,7 @@
                             <div class="input-icon-wrap">
                             <span class="input-icon">
                              <span class="fa fa-map-marker"></span></span>
-                                <input type="text" id="zipcode" name="zipcode" maxlength="5" placeholder="Enter your Zip code" required="" aria-required="true" class="form-control input-lg"
+                                <input type="text" id="zipcode" name="zipcode" maxlength="5" placeholder="Enter your Zip code" required="" aria-required="true" class="form-control input-lg" autofocus
                                 <?php
                                     if (isset (request()->zipcode))
                                     {
@@ -64,6 +64,7 @@
                         </div>
                         <a id="previous1" class="btn btn-secondary col-xs-6 ">Previous</a>
                         {{--<a id="next1" class="btn btn-primary col-xs-6">Next</a>--}}
+                        <div id="progress1"></div>
                     </div>
 
                     {{--section 3--}}
@@ -127,7 +128,7 @@
                         </div>
                         <button type="submit" id="next2" class="btn btn-primary col-xs-6">Next</button>
                         <a id="previous2" class="btn btn-secondary col-xs-6 ">Previous</a>
-
+                        <div id="progress2" style="width: 30%"></div>
                     </div>
 
                     {{--section 4--}}
@@ -152,6 +153,7 @@
                         </div>
                         <a id="previous3" class="btn btn-secondary col-xs-6 ">Previous</a>
                         {{--<a id="next3" class="btn btn-primary col-xs-6">Next</a>--}}
+                        <div id="progress3" style="width: 40%"></div>
                     </div>
                     {{--section 5--}}
                     <div class="col-xs-12 col-md-6 formdivdoh formcontent5 text-center">
@@ -175,6 +177,8 @@
                         </div>
                         <a id="previous4" class="btn btn-secondary col-xs-6 ">Previous</a>
                         {{--<a id="next4" class="btn btn-primary col-xs-6">Next</a>--}}
+                        <div id="progress4" style="width: 50%"></div>
+
                     </div>
                     {{--section 6--}}
                     <div class="col-xs-12 col-md-6 formdivn formcontent6 text-center">
@@ -197,6 +201,7 @@
                             <a id="previous5" class="btn btn-secondary col-xs-12 ">Previous</a>
 
                         </div>
+                        <div id="progress6" style="width: 60%"></div>
                     </div>
                     {{--section 7--}}
                     <div class="col-xs-12 col-md-6 formdivtc formcontent7 text-center">
@@ -222,7 +227,7 @@
                         </div>
                         <button type="submit" id="next6" class="btn btn-primary col-xs-6 link-inactive">Next</button>
                         <a id="previous6" class="btn btn-secondary col-xs-12 ">Previous</a>
-
+                        <div id="progress7" style="width: 70%"></div>
                     </div>
                     {{--section 8--}}
                     <div class="col-xs-12 col-md-6 formdivst formcontent8 text-center">
@@ -245,7 +250,7 @@
                             <i class="fa fa-refresh fa-spin" id="lodingGf"></i>Loading
                         </button>
                         <a id="previous7" class="btn btn-secondary col-xs-12 ">Previous</a>
-
+                        <div id="progress8" style></div>
                     </div>
 
 
